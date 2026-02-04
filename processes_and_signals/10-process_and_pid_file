@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
-# Creates a PID file and handles signals
+# PID file and signal handling
 echo "$$" > /var/run/myscript.pid
-
 trap 'echo "I hate the kill command"; rm /var/run/myscript.pid; exit' SIGTERM SIGINT SIGQUIT
-
 while true; do
     echo "To infinity and beyond"
     sleep 2
